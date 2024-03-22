@@ -10,4 +10,4 @@ devenv.local.nix
 .pre-commit-config.yaml
 
 # jupyter
-./ipynb_checkpoints
+.ipynb_checkpoints
