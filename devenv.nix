@@ -5,14 +5,18 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [
-    pkgs.git
-    pkgs.python311Packages.jupyterlab
+  packages = with pkgs; [
+    texliveFull
+    git
+    python311Packages.jupyterlab
   ];
+
+  services.mongodb.enable = true;
 
   # https://devenv.sh/scripts/
   scripts.hello.exec = "echo hello from $GREET";
   scripts.show-notebook.exec = "jupyter lab exploratory.ipynb";
+  scripts.generate-html.exec = "jupyter convert --to html exploratory.ipynb";
 
   enterShell = ''
     hello
